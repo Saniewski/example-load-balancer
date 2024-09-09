@@ -1,0 +1,21 @@
+services:
+
+  # example-front:
+  #   build:
+  #     context: ./example-front
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  #   deploy:
+  #     mode: replicated
+  #     replicas: 1
+
+  example-go-service:
+    build:
+      context: ./example-go-service
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    deploy:
+      mode: replicated
+      replicas: 1

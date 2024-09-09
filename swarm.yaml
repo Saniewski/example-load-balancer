@@ -1,0 +1,24 @@
+services:
+
+  caddy:
+    image: saniewski/example-caddy:1.0.0
+    deploy:
+      mode: replicated
+      replicas: 1
+    ports:
+      - "80:80"
+      # - "443:443"
+    volumes:
+      - caddy-data:/data
+      - caddy-config:/config
+
+  example-go-service:
+    image: saniewski/example-go-service:1.0.0
+    deploy:
+      mode: replicated
+      replicas: 1
+
+volumes:
+  caddy-data:
+    external: true
+  caddy-config:
